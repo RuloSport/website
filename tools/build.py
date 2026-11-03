@@ -7,6 +7,7 @@ def img(name, w=1200):
 
 DEMOPADEL = "https://demopadel.au/products/"
 COMING_SOON = True  # set to False once the products are live on DemoPadel
+SHOW_PRICES = False  # set to True to show retail prices again
 YEAR = "2026"
 
 PRODUCTS = [
@@ -23,7 +24,7 @@ PRODUCTS = [
 <ul><li><strong>Thin, premium feel</strong>: 0.6mm, keeps the feel of your racket's original handle</li>
 <li><strong>Tacky feel</strong>: a secure, locked-in hold from the first hit</li>
 <li><strong>Tack that holds</strong>: stays tacky session after session</li></ul>
-<p>The 3 × 3-pack gives you 9 grips and saves $11 compared with buying three 3-packs.</p>""",
+<p>Available as a 3-pack (3 grips) or a 3 × 3-pack (9 grips).</p>""",
         "specs": [("Thickness", "0.6mm"), ("Feel", "Tacky"), ("Colour", "White"), ("Pack", "3-pack or 3 × 3-pack")],
         "how_title": "How to regrip",
         "how": ["Remove your old overgrip and wipe the handle clean.",
@@ -131,7 +132,7 @@ def card(p):
   <div class="card-img"><img src="{img(p['images'][0][0], 800)}" alt="{html.escape(p['images'][0][1])}" loading="lazy" width="800" height="800"></div>
   <span class="card-tag">{p['tag']}</span>
   <span class="card-title">{p['title']}</span>
-  <span class="card-price">{p['card_price']}{" · Coming soon" if COMING_SOON else ""}</span>
+  <span class="card-price">{" · ".join(x for x in [p['card_price'] if SHOW_PRICES else "", "Coming soon" if COMING_SOON else ""] if x)}</span>
 </a>"""
 
 WHOLESALE_CTA = """<section class="band-dark"><div class="wrap stack">
@@ -190,7 +191,7 @@ def build_product(p):
     thumbs = "".join(f'<button type="button" aria-pressed="{"true" if i == 0 else "false"}" data-src="{img(n, 1200)}" data-alt="{html.escape(a)}"><img src="{img(n, 200)}" alt="" loading="lazy"></button>' for i, (n, a) in enumerate(imgs))
     v0 = p["variants"][0]
     if len(p["variants"]) > 1:
-        opts = "".join(f'<label><input type="radio" name="pack" value="{html.escape(t)}" data-price="{pr}" data-url="{buy_url(p, vid)}"{" checked" if i == 0 else ""}><span>{t}</span></label>' for i, (t, pr, vid) in enumerate(p["variants"]))
+        opts = "".join(f'<label><input type="radio" name="pack" value="{html.escape(t)}" {f' data-price="{pr}"' if SHOW_PRICES else ""} data-url="{buy_url(p, vid)}"{" checked" if i == 0 else ""}><span>{t}</span></label>' for i, (t, pr, vid) in enumerate(p["variants"]))
         variants = f'<fieldset class="variants" data-variants><legend>Pack size</legend><div class="variant-opts">{opts}</div></fieldset>'
     else:
         variants = ""
@@ -207,7 +208,7 @@ def build_product(p):
   <div class="pdp-info">
     <span class="eyebrow">{p['tag']}</span>
     <h1>{p['title']}</h1>
-    <p class="price" data-price>{v0[1]} <small>AUD inc GST</small></p>
+    {f'<p class="price" data-price>{v0[1]} <small>AUD inc GST</small></p>' if SHOW_PRICES else ""}
     <div class="chips">{chips}</div>
     {variants}
     <div class="btn-row">
