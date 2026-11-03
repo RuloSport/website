@@ -52,6 +52,17 @@ document.querySelectorAll("form[data-rulo-form]").forEach((form) => {
         return;
       }
     }
+    if (form.dataset.moq) {
+      const moq = Number(form.dataset.moq);
+      const short = [...form.querySelectorAll('input[type="number"]')].filter((i) => Number(i.value) > 0 && Number(i.value) < moq);
+      if (short.length) {
+        const names = short.map((i) => i.closest("tr").cells[0].textContent).join(", ");
+        status.className = "form-status err";
+        status.textContent = `The minimum order is ${moq} units per product. Increase the quantity for: ${names}.`;
+        short[0].focus();
+        return;
+      }
+    }
     const subject = form.dataset.subject || "Website enquiry";
     if (!FORM_ENDPOINT) {
       const body = encodeURIComponent(formToText(form));

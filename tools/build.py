@@ -257,20 +257,15 @@ def build_faq():
   <section><h2>Orders &amp; wholesale</h2><div>
     {q("Where do I buy Rulo?", "Retail orders go through DemoPadel, our Melbourne retail partner. Every product page has a <strong>Buy now at DemoPadel</strong> button. You can also find Rulo at Prelli.")}
     {q("Do you sell to clubs and coaches?", 'Yes. See our <a href="wholesale.html">Wholesale</a> page or <a href="wholesale.html#order">start an order</a>.')}
+    {q("Is there a minimum wholesale order?", 'Yes. The minimum is 24 units of each product you order. You can order one product or mix all three.')}
   </div></section>
   <div class="cta-box"><h3>Still have a question?</h3><p>We're happy to help.</p><a class="btn btn-primary" href="contact.html">Contact us</a></div>
 </div></div>"""
     return page("faq.html", "FAQ", "Answers about Rulo Pro Overgrips, Edge Lite and Edge Carbon edge tape, and wholesale orders.", body, "faq.html")
 
 def build_wholesale():
-    rows = []
-    for p in PRODUCTS:
-        if len(p["variants"]) > 1:
-            for t, _, _ in p["variants"]:
-                rows.append(f"{p['title']} – {t}")
-        else:
-            rows.append(p["title"])
-    qty_rows = "".join(f'<tr><td>{html.escape(r)}</td><td><input type="number" min="0" step="1" inputmode="numeric" id="qty-{i}" name="Qty – {html.escape(r)}" aria-label="Quantity of {html.escape(r)}" placeholder="0"></td></tr>' for i, r in enumerate(rows))
+    rows = ["Rulo Pro Overgrips (3-pack)", "Rulo Edge Lite", "Rulo Edge Carbon"]
+    qty_rows = "".join(f'<tr><td>{html.escape(r)}</td><td><input type="number" min="0" step="1" inputmode="numeric" id="qty-{i}" name="Qty – {html.escape(r)}" aria-label="Quantity of {html.escape(r)}" placeholder="24+"></td></tr>' for i, r in enumerate(rows))
     body = f"""<div class="wrap">
 <div class="page-head"><span class="eyebrow">Clubs · Coaches · Retailers</span><h1>Wholesale</h1>
 <p class="lede">Stock Rulo in your pro shop, kit out your academy, or add padel accessories to your range.</p>
@@ -282,12 +277,12 @@ def build_wholesale():
     <div class="tile"><h4>Sports retailers</h4><p>A focused padel accessories range with clear tier positioning.</p></div>
   </div></section>
   <section><h2>How it works</h2><div class="steps">
-    <div class="step"><h4>Send your order</h4><p>Fill in the form below with your business details and the quantities you're after.</p></div>
+    <div class="step"><h4>Send your order</h4><p>Fill in the form below with your business details and quantities. Minimum order is 24 units per product.</p></div>
     <div class="step"><h4>Get your invoice</h4><p>We confirm wholesale pricing and send you an invoice.</p></div>
     <div class="step"><h4>Pay &amp; dispatch</h4><p>Orders are paid 100% upfront and dispatched once payment is received.</p></div>
   </div></section>
   <section id="order"><h2>Wholesale order form</h2>
-  <form class="form" data-rulo-form data-needs-qty data-subject="Wholesale order" data-success="Thanks, your order request is in. We'll confirm pricing and send an invoice within one business day.">
+  <form class="form" data-rulo-form data-needs-qty data-moq="24" data-subject="Wholesale order" data-success="Thanks, your order request is in. We'll confirm pricing and send an invoice within one business day.">
     <div class="field"><label for="w-business">Business name</label><input id="w-business" name="Business name" required autocomplete="organization"></div>
     <div class="field"><label for="w-abn">ABN (optional)</label><input id="w-abn" name="ABN" inputmode="numeric"></div>
     <div class="field"><label for="w-name">Contact name</label><input id="w-name" name="Contact name" required autocomplete="name"></div>
@@ -295,7 +290,7 @@ def build_wholesale():
     <div class="field"><label for="w-email">Email</label><input id="w-email" type="email" name="email" required autocomplete="email"></div>
     <div class="field"><label for="w-phone">Phone</label><input id="w-phone" type="tel" name="Phone" autocomplete="tel"></div>
     <div class="field full"><label for="w-address">Delivery address</label><input id="w-address" name="Delivery address" required autocomplete="street-address"></div>
-    <div class="field full"><span style="font-size:13px;font-weight:700">Products and quantities</span>
+    <div class="field full"><span style="font-size:13px;font-weight:700">Products and quantities <span style="font-weight:500;color:var(--muted)">(minimum 24 units of each product you order)</span></span>
       <div class="table-scroll"><table class="qty-table"><thead><tr><th>Product</th><th>Quantity</th></tr></thead><tbody>{qty_rows}</tbody></table></div></div>
     <div class="field full"><label for="w-notes">Notes (optional)</label><textarea id="w-notes" name="Notes"></textarea></div>
     <div class="full stack" style="gap:10px"><button class="btn btn-primary" type="submit">Send order request</button>
