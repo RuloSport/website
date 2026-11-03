@@ -18,20 +18,20 @@ PRODUCTS = [
                    ("rulo-site-overgrip-pack.png?v=1793702910", "Rulo Pro Overgrip pack front"),
                    ("Screenshot_2026-10-03_at_12.37.55_pm.png?v=1793702198", "Rulo Pro Overgrips"),
                    ("rulo-site-cardboard.png?v=1793702910", "Rulo overgrip packaging")],
-        "variants": [("1 × 3-pack (3 grips)", "$22.00", "50804496826530"), ("3 × 3-pack (9 grips)", "$55.00", "50804496859298")],
+        "variants": [("3-pack (3 grips)", "$22.00", "50804496826530")],
         "chips": [("0.6mm thin", True), ("Tacky", False), ("Tack that holds", False)],
         "desc": """<p>Tested by players and coaches. Rulo Pro Overgrips are built for players who want a locked-in feel without adding bulk to the handle.</p>
 <ul><li><strong>Thin, premium feel</strong>: 0.6mm, keeps the feel of your racket's original handle</li>
 <li><strong>Tacky feel</strong>: a secure, locked-in hold from the first hit</li>
 <li><strong>Tack that holds</strong>: stays tacky session after session</li></ul>
-<p>Available as a 3-pack (3 grips) or a 3 × 3-pack (9 grips).</p>""",
-        "specs": [("Thickness", "0.6mm"), ("Feel", "Tacky"), ("Colour", "White"), ("Pack", "3-pack or 3 × 3-pack")],
+<p>Sold in packs of 3 grips.</p>""",
+        "specs": [("Thickness", "0.6mm"), ("Feel", "Tacky"), ("Colour", "White"), ("Pack", "3 grips")],
         "how_title": "How to regrip",
         "how": ["Remove your old overgrip and wipe the handle clean.",
                 "Peel the backing and start at the butt cap with the tapered end.",
                 "Wrap up the handle, overlapping each turn slightly and keeping light tension.",
                 "Trim if needed and secure the end with the finishing tape."],
-        "blurb": "Thin, premium feel with a tacky grip that holds. Sold in 3-packs, or save with the 3 × 3-pack.",
+        "blurb": "Thin, premium feel with a tacky grip that holds. Sold in packs of 3.",
     },
     {
         "slug": "rulo-edge-lite", "file": "edge-lite.html", "title": "Rulo Edge Lite", "tag": "Edge tape · TPU",
