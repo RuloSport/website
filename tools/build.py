@@ -97,7 +97,7 @@ def footer():
     <div><h4>Shop</h4><ul>{shop}</ul></div>
     <div><h4>Info</h4><ul>{info}</ul></div>
   </div>
-  <div class="footer-bottom"><span>© {YEAR} RuloSport · Padel AB Pty Ltd</span><span>Retail orders are processed securely by DemoPadel.</span></div>
+  <div class="footer-bottom"><span>© {YEAR} RuloSport · Padel AB Pty Ltd</span><span>Protect | Play | Perform</span></div>
 </div></footer>"""
 
 def page(file, title, desc, body, active=""):
