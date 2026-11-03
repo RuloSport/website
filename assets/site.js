@@ -2,7 +2,7 @@
 
 // Paste the Formspree form URL here once it's set up (e.g. "https://formspree.io/f/abcdwxyz").
 // Until then, forms open a pre-filled email to sales@rulosport.com instead.
-const FORM_ENDPOINT = "";
+const FORM_ENDPOINT = "https://formspree.io/f/xbggqler";
 const SALES_EMAIL = "sales@rulosport.com";
 
 // Gallery thumbnails
