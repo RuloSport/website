@@ -207,7 +207,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .site-footer { border-top: 1px solid var(--line); }
 .footer-grid { display: grid; grid-template-columns: minmax(0, 1.3fr) repeat(2, minmax(0, 1fr)); gap: 32px; padding-block: 48px 32px; }
 @media (max-width: 760px) { .footer-grid { grid-template-columns: 1fr; } }
-.footer-grid img { height: 34px; width: auto; }
+.footer-grid img { height: 40px; width: auto; align-self: flex-start; object-fit: contain; }
 .footer-grid h4 { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 10px; }
 .footer-grid ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; font-size: 14px; }
 .footer-grid a { text-decoration: none; }
