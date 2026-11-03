@@ -6,6 +6,7 @@ def img(name, w=1200):
     return f"{CDN}{name}&width={w}" if "?" in name else f"{CDN}{name}?width={w}"
 
 DEMOPADEL = "https://demopadel.au/products/"
+COMING_SOON = True  # set to False once the products are live on DemoPadel
 YEAR = "2026"
 
 PRODUCTS = [
@@ -130,7 +131,7 @@ def card(p):
   <div class="card-img"><img src="{img(p['images'][0][0], 800)}" alt="{html.escape(p['images'][0][1])}" loading="lazy" width="800" height="800"></div>
   <span class="card-tag">{p['tag']}</span>
   <span class="card-title">{p['title']}</span>
-  <span class="card-price">{p['card_price']}</span>
+  <span class="card-price">{p['card_price']}{" · Coming soon" if COMING_SOON else ""}</span>
 </a>"""
 
 WHOLESALE_CTA = """<section class="band-dark"><div class="wrap stack">
@@ -171,6 +172,19 @@ def build_index():
 {WHOLESALE_CTA}"""
     return page("index.html", "RuloSport", "Padel overgrips and edge tape built for padel. Rulo Pro Overgrips, Edge Lite and Edge Carbon. Wholesale for clubs, coaches and retailers.", body)
 
+def notify_section(p):
+    t = p["title"]
+    return f"""<section class="section feature" id="notify" style="padding-block:48px"><div class="wrap feature-grid" style="align-items:start">
+  <div class="stack"><span class="eyebrow">Coming soon</span><h3>Be first to get {t}</h3>
+    <p>Our first shipment is on its way to Melbourne. Leave your details and we'll email you as soon as {t} is available to buy.</p></div>
+  <form class="form" data-rulo-form data-subject="Register interest – {t}" data-success="Thanks, you're on the list. We'll email you as soon as {t} is in stock." style="background:var(--white)">
+    <input type="hidden" name="Product" value="{t}">
+    <div class="field"><label for="n-name">Name</label><input id="n-name" name="Name" required autocomplete="name"></div>
+    <div class="field"><label for="n-email">Email</label><input id="n-email" type="email" name="email" required autocomplete="email"></div>
+    <div class="full stack" style="gap:10px"><button class="btn btn-primary" type="submit">Notify me</button><p class="form-status" role="status" aria-live="polite"></p></div>
+  </form>
+</div></section>"""
+
 def build_product(p):
     imgs = p["images"]
     thumbs = "".join(f'<button type="button" aria-pressed="{"true" if i == 0 else "false"}" data-src="{img(n, 1200)}" data-alt="{html.escape(a)}"><img src="{img(n, 200)}" alt="" loading="lazy"></button>' for i, (n, a) in enumerate(imgs))
@@ -197,18 +211,19 @@ def build_product(p):
     <div class="chips">{chips}</div>
     {variants}
     <div class="btn-row">
-      <a class="btn btn-primary" data-buy href="{buy_url(p, v0[2])}" target="_blank" rel="noopener">Buy now at DemoPadel</a>
+      {'<a class="btn btn-primary" href="#notify">Coming soon: register interest</a>' if COMING_SOON else f'<a class="btn btn-primary" data-buy href="{buy_url(p, v0[2])}" target="_blank" rel="noopener">Buy now at DemoPadel</a>'}
       <a class="btn btn-secondary" href="wholesale.html#order">Order wholesale</a>
     </div>
     <ul class="trust">
       <li>Designed for padel, tested by players and coaches</li>
-      <li>Secure checkout through DemoPadel, our Melbourne retail partner</li>
+      <li>{"Launching soon. Register and we'll email you as soon as it's in stock" if COMING_SOON else "Secure checkout through DemoPadel, our Melbourne retail partner"}</li>
       <li>Clubs &amp; coaches: <a href="wholesale.html">wholesale pricing available</a></li>
     </ul>
     <div class="desc">{p['desc']}</div>
   </div>
 </div>
 </div>
+{notify_section(p) if COMING_SOON else ""}
 <section class="pdp-more"><div class="wrap pdp-detail">
   <div><h3>Specs</h3><table class="specs"><tbody>{specs}</tbody></table></div>
   <div class="how"><h3>{p['how_title']}</h3><ol>{how}</ol></div>
@@ -255,7 +270,7 @@ def build_faq():
     {q("How do I apply it?", "<ol><li>Clean the racket surface.</li><li>Peel off the backing of the protection tape.</li><li>Centre the tape and apply from the middle first.</li><li>Push the sides down onto the racket.</li><li>Replace as needed.</li></ol>")}
   </div></section>
   <section><h2>Orders &amp; wholesale</h2><div>
-    {q("Where do I buy Rulo?", "Retail orders go through DemoPadel, our Melbourne retail partner. Every product page has a <strong>Buy now at DemoPadel</strong> button. You can also find Rulo at Prelli.")}
+    {q("Where do I buy Rulo?", "Rulo is launching soon through DemoPadel, our Melbourne retail partner, and at Prelli. Our first shipment is on its way. <a href='index.html#shop'>Pick a product</a> and register your interest, and we'll email you when it's in stock." if COMING_SOON else "Retail orders go through DemoPadel, our Melbourne retail partner. Every product page has a <strong>Buy now at DemoPadel</strong> button. You can also find Rulo at Prelli.")}
     {q("Do you sell to clubs and coaches?", 'Yes. See our <a href="wholesale.html">Wholesale</a> page or <a href="wholesale.html#order">start an order</a>.')}
     {q("Is there a minimum wholesale order?", 'Yes. The minimum is 24 units of each product you order. You can order one product or mix all three.')}
   </div></section>
