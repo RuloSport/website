@@ -322,7 +322,7 @@ def build_wholesale():
     <div class="field"><label for="w-email">Email</label><input id="w-email" type="email" name="email" required autocomplete="email"></div>
     <div class="field"><label for="w-phone">Phone</label><input id="w-phone" type="tel" name="Phone" autocomplete="tel"></div>
     <div class="field full"><label for="w-address">Delivery address</label><input id="w-address" name="Delivery address" required autocomplete="street-address"></div>
-    <div class="field full"><span style="font-size:13px;font-weight:700">Products and number of boxes <span style="font-weight:500;color:var(--muted)">(minimum 2 boxes of each product you order)</span></span>
+    <div class="field full"><span style="font-size:15px;font-weight:700">How many boxes would you like?</span><span style="font-size:13px;color:var(--muted)">Each box holds 12 packs. Order at least 2 boxes of any product you choose, and leave the rest blank.</span>
       <div class="table-scroll"><table class="qty-table"><thead><tr><th>Product</th><th>Boxes</th><th>You get</th></tr></thead><tbody>{qty_rows}</tbody></table></div></div>
     <div class="field full"><label for="w-notes">Notes (optional)</label><textarea id="w-notes" name="Notes"></textarea></div>
     <div class="full stack" style="gap:10px"><button class="btn btn-primary" type="submit">Send order request</button>
