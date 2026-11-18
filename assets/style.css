@@ -196,7 +196,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .qty-table { width: 100%; border-collapse: collapse; background: var(--white); border-radius: var(--radius); overflow: hidden; }
 .qty-table th, .qty-table td { padding: 10px 12px; border-bottom: 1px solid var(--line); text-align: left; font-size: 14px; }
 .qty-table th { background: var(--ink); color: var(--white); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; }
-.qty-table input { width: 90px; font: inherit; padding: 8px; border: 1px solid #cfc9c3; border-radius: var(--radius); }
+.qty-table input { width: 70px; font: inherit; padding: 8px; border: 1px solid #cfc9c3; border-radius: var(--radius); }
 .form-note { font-size: 13px; color: var(--muted); }
 .form-status { font-weight: 700; }
 .form-status.ok { color: #2d6a00; }
@@ -213,3 +213,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .footer-grid a { text-decoration: none; }
 .footer-grid a:hover { text-decoration: underline; }
 .footer-bottom { border-top: 1px solid var(--line); padding-block: 18px 40px; font-size: 12px; color: var(--muted); display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+
+.qty-table td.qty-total { font-weight: 700; white-space: nowrap; }
+.qty-table small.muted { color: var(--muted); font-size: 12px; }
+@media (max-width: 600px) { .qty-table th, .qty-table td { padding: 8px; } .qty-table input { width: 56px; } .qty-table td.qty-total { white-space: normal; font-size: 13px; } }

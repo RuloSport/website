@@ -18,20 +18,21 @@ PRODUCTS = [
                    ("rulo-site-overgrip-pack.png?v=1793702910", "Rulo Pro Overgrip pack front"),
                    ("Screenshot_2026-10-03_at_12.37.55_pm.png?v=1793702198", "Rulo Pro Overgrips"),
                    ("rulo-site-cardboard.png?v=1793702910", "Rulo overgrip packaging")],
-        "variants": [("3-pack (3 grips)", "$22.00", "50804496826530")],
+        "variants": [("1 × 3-pack (3 grips)", "$22.00", "50804496826530")],
+        "box": "12 × 3-packs (36 grips)",
         "chips": [("0.6mm thin", True), ("Tacky", False), ("Tack that holds", False)],
         "desc": """<p>Tested by players and coaches. Rulo Pro Overgrips are built for players who want a locked-in feel without adding bulk to the handle.</p>
 <ul><li><strong>Thin, premium feel</strong>: 0.6mm, keeps the feel of your racket's original handle</li>
 <li><strong>Tacky feel</strong>: a secure, locked-in hold from the first hit</li>
 <li><strong>Tack that holds</strong>: stays tacky session after session</li></ul>
-<p>Sold in packs of 3 grips.</p>""",
-        "specs": [("Thickness", "0.6mm"), ("Feel", "Tacky"), ("Colour", "White"), ("Pack", "3 grips")],
+<p><strong>One pack = 3 grips.</strong> Prices and quantities are always per 3-pack, never per single grip.</p>""",
+        "specs": [("Thickness", "0.6mm"), ("Feel", "Tacky"), ("Colour", "White"), ("Retail pack", "1 × 3-pack (3 grips)"), ("Wholesale box", "12 × 3-packs (36 grips)")],
         "how_title": "How to regrip",
         "how": ["Remove your old overgrip and wipe the handle clean.",
                 "Peel the backing and start at the butt cap with the tapered end.",
                 "Wrap up the handle, overlapping each turn slightly and keeping light tension.",
                 "Trim if needed and secure the end with the finishing tape."],
-        "blurb": "Thin, premium feel with a tacky grip that holds. Sold in packs of 3.",
+        "blurb": "Thin, premium feel with a tacky grip that holds. Sold as a 3-pack (3 grips per pack).",
     },
     {
         "slug": "rulo-edge-lite", "file": "edge-lite.html", "title": "Rulo Edge Lite", "tag": "Edge tape · TPU",
@@ -39,9 +40,10 @@ PRODUCTS = [
         "images": [("RULOEdgeLiteWhiteBlisterPack.png?v=1793702202", "Rulo Edge Lite pack"),
                    ("rulo-site-edge-lite-studio.png?v=1793702912", "Rulo Edge Lite packaging studio shot")],
         "variants": [("Single pack", "$11.99", "50804496892066")],
+        "box": "12 packs",
         "chips": [("TPU", True), ("Translucent", False), ("Frame protection", False)],
         "desc": """<p>Translucent TPU protection tape for the frame of your padel racket. Rulo Edge Lite helps protect against scuffs and wall and floor contact while keeping your racket's design visible.</p>""",
-        "specs": [("Material", "TPU"), ("Colour", "Translucent"), ("Use", "Padel racket frame protection")],
+        "specs": [("Material", "TPU"), ("Colour", "Translucent"), ("Use", "Padel racket frame protection"), ("Wholesale box", "12 packs")],
         "how_title": "How to apply",
         "how": ["Clean the racket surface.", "Peel off the backing of the protection tape.",
                 "Centre the tape and apply from the middle first.", "Push the sides down onto the racket.", "Replace as needed."],
@@ -55,9 +57,10 @@ PRODUCTS = [
                    ("RULO_Edge_Lite_Carbon_Racket_Close-Up.png?v=1793702203", "Rulo Edge Carbon racket close-up"),
                    ("RULO_Edge_Lite_Carbon_Protector.png?v=1793702204", "Rulo Edge Carbon protector")],
         "variants": [("Single pack", "$19.99", "50804496924834")],
+        "box": "12 packs",
         "chips": [("3K carbon", True), ("Black finish", False), ("Frame protection", False)],
         "desc": """<p>Premium 3K carbon protection tape for the frame of your padel racket. A black carbon-weave finish that protects against scuffs and wall and floor contact.</p>""",
-        "specs": [("Material", "3K carbon"), ("Colour", "Black"), ("Use", "Padel racket frame protection")],
+        "specs": [("Material", "3K carbon"), ("Colour", "Black"), ("Use", "Padel racket frame protection"), ("Wholesale box", "12 packs")],
         "how_title": "How to apply",
         "how": ["Clean the racket surface.", "Peel off the backing of the protection tape.",
                 "Centre the tape and apply from the middle first.", "Push the sides down onto the racket.", "Replace as needed."],
@@ -228,7 +231,7 @@ def build_product(p):
 <section class="pdp-more"><div class="wrap pdp-detail">
   <div><h3>Specs</h3><table class="specs"><tbody>{specs}</tbody></table></div>
   <div class="how"><h3>{p['how_title']}</h3><ol>{how}</ol></div>
-  <div class="cta-box"><h3>Wholesale</h3><p>Stocking Rulo in your club or pro shop, or kitting out an academy? We offer wholesale pricing for clubs, coaches and retailers.</p><a class="btn btn-primary" href="wholesale.html#order">Start a wholesale order</a></div>
+  <div class="cta-box"><h3>Wholesale</h3><p>Stocking Rulo in your club or pro shop, or kitting out an academy? Wholesale comes in display boxes of {p['box']}, minimum 2 boxes.</p><a class="btn btn-primary" href="wholesale.html#order">Start a wholesale order</a></div>
 </div></section>
 <section class="section" style="padding-top:0"><div class="wrap">
   <div class="section-head"><h3>Complete your setup</h3></div>
@@ -263,6 +266,7 @@ def build_faq():
   <section><h2>Overgrips</h2><div>
     {q("How thin are Rulo Pro Overgrips?", "0.6mm. They add grip without noticeably building up the handle, so your racket keeps the feel you're used to.", True)}
     {q("How often should I change my overgrip?", "It depends on how often you play. Change it when it starts to feel slippery, shiny or worn. For frequent players that's often every few weeks.")}
+    {q("How many grips are in a pack?", "Every pack of Rulo Pro Overgrips holds <strong>3 grips</strong>. One unit is always one 3-pack, never a single grip.")}
     {q("Will they fit my racket?", "Yes. Overgrips wrap over your racket's existing handle, so they fit any padel racket.")}
   </div></section>
   <section><h2>Edge tape</h2><div>
@@ -273,15 +277,22 @@ def build_faq():
   <section><h2>Orders &amp; wholesale</h2><div>
     {q("Where do I buy Rulo?", "Rulo is launching soon through DemoPadel, our Melbourne retail partner, and at Prelli. Our first shipment is on its way. <a href='index.html#shop'>Pick a product</a> and register your interest, and we'll email you when it's in stock." if COMING_SOON else "Retail orders go through DemoPadel, our Melbourne retail partner. Every product page has a <strong>Buy now at DemoPadel</strong> button. You can also find Rulo at Prelli.")}
     {q("Do you sell to clubs and coaches?", 'Yes. See our <a href="wholesale.html">Wholesale</a> page or <a href="wholesale.html#order">start an order</a>.')}
-    {q("Is there a minimum wholesale order?", 'Yes. The minimum is 24 units of each product you order. You can order one product or mix all three.')}
+    {q("How does wholesale packing work?", 'Wholesale is ordered in display boxes of 12 retail packs. A box of Rulo Pro Overgrips holds <strong>12 × 3-packs (36 grips)</strong>. A box of Edge Lite or Edge Carbon holds 12 packs.')}
+    {q("Is there a minimum wholesale order?", 'Yes. The minimum is <strong>2 boxes of each product you order</strong> (24 packs). You can order one product or mix all three.')}
   </div></section>
   <div class="cta-box"><h3>Still have a question?</h3><p>We're happy to help.</p><a class="btn btn-primary" href="contact.html">Contact us</a></div>
 </div></div>"""
     return page("faq.html", "FAQ", "Answers about Rulo Pro Overgrips, Edge Lite and Edge Carbon edge tape, and wholesale orders.", body, "faq.html")
 
 def build_wholesale():
-    rows = ["Rulo Pro Overgrips (3-pack)", "Rulo Edge Lite", "Rulo Edge Carbon"]
-    qty_rows = "".join(f'<tr><td>{html.escape(r)}</td><td><input type="number" min="0" step="1" inputmode="numeric" id="qty-{i}" name="Qty – {html.escape(r)}" aria-label="Quantity of {html.escape(r)}" placeholder="24+"></td></tr>' for i, r in enumerate(rows))
+    rows = [("Rulo Pro Overgrips", "12 × 3-packs (36 grips)", 12, "3-packs", 3, "grips"),
+            ("Rulo Edge Lite", "12 packs", 12, "packs", 0, ""),
+            ("Rulo Edge Carbon", "12 packs", 12, "packs", 0, "")]
+    qty_rows = "".join(
+        f'<tr><td><strong>{html.escape(n)}</strong><br><small class="muted">1 box = {html.escape(b)}</small></td>'
+        f'<td><input type="number" min="0" step="1" inputmode="numeric" id="qty-{i}" name="Boxes – {html.escape(n)} (box of {html.escape(b)})" aria-label="Number of boxes of {html.escape(n)}" placeholder="2+" data-per-box="{per}" data-unit="{u}" data-inner="{inner}" data-inner-unit="{iu}"></td>'
+        f'<td class="qty-total" data-total>–</td></tr>'
+        for i, (n, b, per, u, inner, iu) in enumerate(rows))
     body = f"""<div class="wrap">
 <div class="page-head"><span class="eyebrow">Clubs · Coaches · Retailers</span><h1>Wholesale</h1>
 <p class="lede">Stock Rulo in your pro shop, kit out your academy, or add padel accessories to your range.</p>
@@ -292,13 +303,18 @@ def build_wholesale():
     <div class="tile"><h4>Coaches &amp; academies</h4><p>Keep your players' rackets gripped and protected session to session.</p></div>
     <div class="tile"><h4>Sports retailers</h4><p>A focused padel accessories range with clear tier positioning.</p></div>
   </div></section>
+  <section><h2>How wholesale is packed</h2><div class="tiles">
+    <div class="tile"><h4>Rulo Pro Overgrips</h4><p><strong>1 box = 12 × 3-packs (36 grips).</strong> One unit is one 3-pack, never a single grip.</p></div>
+    <div class="tile"><h4>Rulo Edge Lite</h4><p><strong>1 box = 12 packs.</strong></p></div>
+    <div class="tile"><h4>Rulo Edge Carbon</h4><p><strong>1 box = 12 packs.</strong></p></div>
+  </div><p style="margin-top:14px"><strong>Minimum order: 2 boxes of each product you order.</strong> Boxes double as counter displays.</p></section>
   <section><h2>How it works</h2><div class="steps">
-    <div class="step"><h4>Send your order</h4><p>Fill in the form below with your business details and quantities. Minimum order is 24 units per product.</p></div>
+    <div class="step"><h4>Send your order</h4><p>Order in display boxes of 12 packs. Minimum 2 boxes of each product you order.</p></div>
     <div class="step"><h4>Get your invoice</h4><p>We confirm wholesale pricing and send you an invoice.</p></div>
     <div class="step"><h4>Pay &amp; dispatch</h4><p>Orders are paid 100% upfront and dispatched once payment is received.</p></div>
   </div></section>
   <section id="order"><h2>Wholesale order form</h2>
-  <form class="form" data-rulo-form data-needs-qty data-moq="24" data-subject="Wholesale order" data-success="Thanks, your order request is in. We'll confirm pricing and send an invoice within one business day.">
+  <form class="form" data-rulo-form data-needs-qty data-moq="2" data-subject="Wholesale order" data-success="Thanks, your order request is in. We'll confirm pricing and send an invoice within one business day.">
     <div class="field"><label for="w-business">Business name</label><input id="w-business" name="Business name" required autocomplete="organization"></div>
     <div class="field"><label for="w-abn">ABN (optional)</label><input id="w-abn" name="ABN" inputmode="numeric"></div>
     <div class="field"><label for="w-name">Contact name</label><input id="w-name" name="Contact name" required autocomplete="name"></div>
@@ -306,8 +322,8 @@ def build_wholesale():
     <div class="field"><label for="w-email">Email</label><input id="w-email" type="email" name="email" required autocomplete="email"></div>
     <div class="field"><label for="w-phone">Phone</label><input id="w-phone" type="tel" name="Phone" autocomplete="tel"></div>
     <div class="field full"><label for="w-address">Delivery address</label><input id="w-address" name="Delivery address" required autocomplete="street-address"></div>
-    <div class="field full"><span style="font-size:13px;font-weight:700">Products and quantities <span style="font-weight:500;color:var(--muted)">(minimum 24 units of each product you order)</span></span>
-      <div class="table-scroll"><table class="qty-table"><thead><tr><th>Product</th><th>Quantity</th></tr></thead><tbody>{qty_rows}</tbody></table></div></div>
+    <div class="field full"><span style="font-size:13px;font-weight:700">Products and number of boxes <span style="font-weight:500;color:var(--muted)">(minimum 2 boxes of each product you order)</span></span>
+      <div class="table-scroll"><table class="qty-table"><thead><tr><th>Product</th><th>Boxes</th><th>You get</th></tr></thead><tbody>{qty_rows}</tbody></table></div></div>
     <div class="field full"><label for="w-notes">Notes (optional)</label><textarea id="w-notes" name="Notes"></textarea></div>
     <div class="full stack" style="gap:10px"><button class="btn btn-primary" type="submit">Send order request</button>
       <p class="form-note">No payment is taken here. We'll confirm pricing and send an invoice. Orders are paid 100% upfront.</p>

@@ -56,9 +56,9 @@ document.querySelectorAll("form[data-rulo-form]").forEach((form) => {
       const moq = Number(form.dataset.moq);
       const short = [...form.querySelectorAll('input[type="number"]')].filter((i) => Number(i.value) > 0 && Number(i.value) < moq);
       if (short.length) {
-        const names = short.map((i) => i.closest("tr").cells[0].textContent).join(", ");
+        const names = short.map((i) => i.closest("tr").cells[0].querySelector("strong")?.textContent || i.closest("tr").cells[0].textContent).join(", ");
         status.className = "form-status err";
-        status.textContent = `The minimum order is ${moq} units per product. Increase the quantity for: ${names}.`;
+        status.textContent = `The minimum order is ${moq} boxes per product. Increase the number of boxes for: ${names}.`;
         short[0].focus();
         return;
       }
@@ -86,4 +86,18 @@ document.querySelectorAll("form[data-rulo-form]").forEach((form) => {
       status.textContent = `That didn't send. Please try again, or email ${SALES_EMAIL}.`;
     }
   });
+});
+
+// Wholesale form: show what a number of boxes works out to
+document.querySelectorAll("input[data-per-box]").forEach((input) => {
+  const cell = input.closest("tr").querySelector("[data-total]");
+  const update = () => {
+    const boxes = Math.max(0, Math.floor(Number(input.value) || 0));
+    if (!boxes) { cell.textContent = "–"; return; }
+    const packs = boxes * Number(input.dataset.perBox);
+    const inner = Number(input.dataset.inner);
+    cell.textContent = `${packs} ${input.dataset.unit}` + (inner ? ` (${packs * inner} ${input.dataset.innerUnit})` : "");
+  };
+  input.addEventListener("input", update);
+  update();
 });
