@@ -35,14 +35,14 @@ PRODUCTS = [
         "blurb": "Thin, premium feel with a tacky grip that holds. Sold as a 3-pack (3 grips per pack).",
     },
     {
-        "slug": "rulo-edge-lite", "file": "edge-lite.html", "title": "Rulo Edge Lite", "tag": "Edge tape · TPU",
+        "slug": "rulo-edge-lite", "file": "edge-lite.html", "title": "Rulo Edge Lite TPU", "tag": "Edge tape · TPU",
         "card_price": "$11.99",
-        "images": [("RULOEdgeLiteWhiteBlisterPack.png?v=1793702202", "Rulo Edge Lite pack"),
-                   ("rulo-site-edge-lite-studio.png?v=1793702912", "Rulo Edge Lite packaging studio shot")],
+        "images": [("RULOEdgeLiteWhiteBlisterPack.png?v=1793702202", "Rulo Edge Lite TPU pack"),
+                   ("rulo-site-edge-lite-studio.png?v=1793702912", "Rulo Edge Lite TPU packaging studio shot")],
         "variants": [("Single pack", "$11.99", "50804496892066")],
         "box": "12 packs",
         "chips": [("TPU", True), ("Translucent", False), ("Frame protection", False)],
-        "desc": """<p>Translucent TPU protection tape for the frame of your padel racket. Rulo Edge Lite helps protect against scuffs and wall and floor contact while keeping your racket's design visible.</p>""",
+        "desc": """<p>Translucent TPU protection tape for the frame of your padel racket. Rulo Edge Lite TPU helps protect against scuffs and wall and floor contact while keeping your racket's design visible.</p>""",
         "specs": [("Material", "TPU"), ("Colour", "Translucent"), ("Use", "Padel racket frame protection"), ("Wholesale box", "12 packs")],
         "how_title": "How to apply",
         "how": ["Clean the racket surface.", "Peel off the backing of the protection tape.",
@@ -50,12 +50,12 @@ PRODUCTS = [
         "blurb": "Translucent TPU frame protection that lets your racket's design show through.",
     },
     {
-        "slug": "rulo-edge-carbon", "file": "edge-carbon.html", "title": "Rulo Edge Carbon", "tag": "Edge tape · 3K carbon",
+        "slug": "rulo-edge-carbon", "file": "edge-carbon.html", "title": "Rulo Edge Lite Carbon", "tag": "Edge tape · 3K carbon",
         "card_price": "$19.99",
-        "images": [("RuloEdgeLiteCarbonProtectorPack.png?v=1793702204", "Rulo Edge Carbon pack"),
-                   ("Neon_Racket_Edge_Macro.png?v=1793702204", "Rulo Edge Carbon on a racket edge"),
-                   ("RULO_Edge_Lite_Carbon_Racket_Close-Up.png?v=1793702203", "Rulo Edge Carbon racket close-up"),
-                   ("RULO_Edge_Lite_Carbon_Protector.png?v=1793702204", "Rulo Edge Carbon protector")],
+        "images": [("RuloEdgeLiteCarbonProtectorPack.png?v=1793702204", "Rulo Edge Lite Carbon pack"),
+                   ("Neon_Racket_Edge_Macro.png?v=1793702204", "Rulo Edge Lite Carbon on a racket edge"),
+                   ("RULO_Edge_Lite_Carbon_Racket_Close-Up.png?v=1793702203", "Rulo Edge Lite Carbon racket close-up"),
+                   ("RULO_Edge_Lite_Carbon_Protector.png?v=1793702204", "Rulo Edge Lite Carbon protector")],
         "variants": [("Single pack", "$19.99", "50804496924834")],
         "box": "12 packs",
         "chips": [("3K carbon", True), ("Black finish", False), ("Frame protection", False)],
@@ -169,12 +169,12 @@ def build_index():
     <span class="eyebrow">On court</span>
     <h2>Feel first</h2>
     <p class="lede">Protection and grip shouldn't change how your racket feels in your hand. Rulo overgrips are 0.6mm thin with a tack that holds, and our edge tape protects the frame without getting in the way.</p>
-    <div class="btn-row"><a class="btn btn-secondary" href="overgrips.html">Overgrips</a><a class="btn btn-secondary" href="edge-lite.html">Edge Lite</a><a class="btn btn-secondary" href="edge-carbon.html">Edge Carbon</a></div>
+    <div class="btn-row"><a class="btn btn-secondary" href="overgrips.html">Overgrips</a><a class="btn btn-secondary" href="edge-lite.html">Edge Lite TPU</a><a class="btn btn-secondary" href="edge-carbon.html">Edge Lite Carbon</a></div>
   </div>
   <div class="feature-video"><video src="assets/rulo-reel.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Rulo product reel"></video></div>
 </div></section>
 {WHOLESALE_CTA}"""
-    return page("index.html", "RuloSport", "Padel overgrips and edge tape built for padel. Rulo Pro Overgrips, Edge Lite and Edge Carbon. Wholesale for clubs, coaches and retailers.", body)
+    return page("index.html", "RuloSport", "Padel overgrips and edge tape built for padel. Rulo Pro Overgrips, Edge Lite TPU and Edge Lite Carbon. Wholesale for clubs, coaches and retailers.", body)
 
 def notify_section(p):
     t = p["title"]
@@ -270,24 +270,24 @@ def build_faq():
     {q("Will they fit my racket?", "Yes. Overgrips wrap over your racket's existing handle, so they fit any padel racket.")}
   </div></section>
   <section><h2>Edge tape</h2><div>
-    {q("What's the difference between Edge Lite and Edge Carbon?", "<strong>Edge Lite</strong> is translucent TPU. It protects your frame while letting your racket's design show through. <strong>Edge Carbon</strong> is our premium option with a black 3K carbon finish.")}
+    {q("What's the difference between Edge Lite TPU and Edge Lite Carbon?", "<strong>Edge Lite TPU</strong> is a translucent tape that protects your frame while letting your racket's design show through. <strong>Edge Lite Carbon</strong> is our premium option with a black 3K carbon finish.")}
     {q("Why use edge tape?", "Padel rackets regularly take knocks from walls, glass and the floor. Edge tape adds a protective layer around the frame to help reduce chips and scuffs.")}
     {q("How do I apply it?", "<ol><li>Clean the racket surface.</li><li>Peel off the backing of the protection tape.</li><li>Centre the tape and apply from the middle first.</li><li>Push the sides down onto the racket.</li><li>Replace as needed.</li></ol>")}
   </div></section>
   <section><h2>Orders &amp; wholesale</h2><div>
     {q("Where do I buy Rulo?", "Rulo is launching soon through DemoPadel, our Melbourne retail partner, and at Prelli. Our first shipment is on its way. <a href='index.html#shop'>Pick a product</a> and register your interest, and we'll email you when it's in stock." if COMING_SOON else "Retail orders go through DemoPadel, our Melbourne retail partner. Every product page has a <strong>Buy now at DemoPadel</strong> button. You can also find Rulo at Prelli.")}
     {q("Do you sell to clubs and coaches?", 'Yes. See our <a href="wholesale.html">Wholesale</a> page or <a href="wholesale.html#order">start an order</a>.')}
-    {q("How does wholesale packing work?", 'Wholesale is ordered in display boxes of 12 retail packs. A box of Rulo Pro Overgrips holds <strong>12 × 3-packs (36 grips)</strong>. A box of Edge Lite or Edge Carbon holds 12 packs.')}
+    {q("How does wholesale packing work?", 'Wholesale is ordered in display boxes of 12 retail packs. A box of Rulo Pro Overgrips holds <strong>12 × 3-packs (36 grips)</strong>. A box of Edge Lite TPU or Edge Lite Carbon holds 12 packs.')}
     {q("Is there a minimum wholesale order?", 'Yes. The minimum is <strong>2 boxes of each product you order</strong> (24 packs). You can order one product or mix all three.')}
   </div></section>
   <div class="cta-box"><h3>Still have a question?</h3><p>We're happy to help.</p><a class="btn btn-primary" href="contact.html">Contact us</a></div>
 </div></div>"""
-    return page("faq.html", "FAQ", "Answers about Rulo Pro Overgrips, Edge Lite and Edge Carbon edge tape, and wholesale orders.", body, "faq.html")
+    return page("faq.html", "FAQ", "Answers about Rulo Pro Overgrips, Edge Lite TPU and Edge Lite Carbon edge tape, and wholesale orders.", body, "faq.html")
 
 def build_wholesale():
     rows = [("Rulo Pro Overgrips", "12 × 3-packs (36 grips)", 12, "3-packs", 3, "grips"),
-            ("Rulo Edge Lite", "12 packs", 12, "packs", 0, ""),
-            ("Rulo Edge Carbon", "12 packs", 12, "packs", 0, "")]
+            ("Rulo Edge Lite TPU", "12 packs", 12, "packs", 0, ""),
+            ("Rulo Edge Lite Carbon", "12 packs", 12, "packs", 0, "")]
     qty_rows = "".join(
         f'<tr><td><strong>{html.escape(n)}</strong><br><small class="muted">1 box = {html.escape(b)}</small></td>'
         f'<td><input type="number" min="0" step="1" inputmode="numeric" id="qty-{i}" name="Boxes – {html.escape(n)} (box of {html.escape(b)})" aria-label="Number of boxes of {html.escape(n)}" placeholder="2+" data-per-box="{per}" data-unit="{u}" data-inner="{inner}" data-inner-unit="{iu}"></td>'
@@ -296,7 +296,7 @@ def build_wholesale():
     body = f"""<div class="wrap">
 <div class="page-head"><span class="eyebrow">Clubs · Coaches · Retailers</span><h1>Wholesale</h1>
 <p class="lede">Stock Rulo in your pro shop, kit out your academy, or add padel accessories to your range.</p>
-<p>We supply Rulo Pro Overgrips, Rulo Edge Lite and Rulo Edge Carbon at wholesale pricing.</p></div>
+<p>We supply Rulo Pro Overgrips, Rulo Edge Lite TPU and Rulo Edge Lite Carbon at wholesale pricing.</p></div>
 <div class="page-body">
   <section><h2>Who it's for</h2><div class="tiles">
     <div class="tile"><h4>Clubs &amp; pro shops</h4><p>Grips and edge tape your members will reach for at the counter.</p></div>
@@ -305,8 +305,8 @@ def build_wholesale():
   </div></section>
   <section><h2>How wholesale is packed</h2><div class="tiles">
     <div class="tile"><h4>Rulo Pro Overgrips</h4><p><strong>1 box = 12 × 3-packs (36 grips).</strong> One unit is one 3-pack, never a single grip.</p></div>
-    <div class="tile"><h4>Rulo Edge Lite</h4><p><strong>1 box = 12 packs.</strong></p></div>
-    <div class="tile"><h4>Rulo Edge Carbon</h4><p><strong>1 box = 12 packs.</strong></p></div>
+    <div class="tile"><h4>Rulo Edge Lite TPU</h4><p><strong>1 box = 12 packs.</strong></p></div>
+    <div class="tile"><h4>Rulo Edge Lite Carbon</h4><p><strong>1 box = 12 packs.</strong></p></div>
   </div><p style="margin-top:14px"><strong>Minimum order: 2 boxes of each product you order.</strong> Boxes double as counter displays.</p></section>
   <section><h2>How it works</h2><div class="steps">
     <div class="step"><h4>Send your order</h4><p>Order in display boxes of 12 packs. Minimum 2 boxes of each product you order.</p></div>
